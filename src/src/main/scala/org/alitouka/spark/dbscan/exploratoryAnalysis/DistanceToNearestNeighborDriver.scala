@@ -53,7 +53,7 @@ object DistanceToNearestNeighborDriver extends DistanceCalculation {
     distanceMeasure: DistanceMeasure,
     numberOfPoints: Long,
     reader: (SparkContext, String) => RawDataSet = IOHelper.readDataset,
-    writer: (RDD[(Double, Double, Long)], String) => Unit = IOHelper.saveTriples): Unit = {
+    writer: (RDD[(Double, Double, Long)], String) => Unit = IOHelper.saveTriples) {
 
     val data = reader(sc, inputPath)
     val settings = new DbscanSettings().withDistanceMeasure(distanceMeasure)
